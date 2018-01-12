@@ -1,10 +1,6 @@
-Reproducible Research Course Project 1
-=======================
-
-#Michael Nichols
-
+# Reproducible Research: Peer Assessment 1
 ###Basic assumptions:
-- assumes activity data downloaded and unzipped into working directory 
+- assumes activity data downloaded and unzipped into working directory
 
 Load packages
 
@@ -12,7 +8,11 @@ Load packages
 library(ggplot2)
 library(dplyr)
 library(gridExtra)
+library(knitr)
 ```
+
+
+## Loading and preprocessing the data
 
 Loading and preprocessing the data (with initial assumption that we can ignore missing values)
 
@@ -22,7 +22,8 @@ activity <- read.csv(file)
 activity <- subset(activity, is.na(activity$steps) == FALSE)
 ```
 
-###Task 1: What is mean total number of steps taken per day?
+## What is mean total number of steps taken per day?
+
 1. Calculate the total number of steps taken per day
 2. If you do not understand the difference between a histogram and a barplot, research the difference between them. Make a histogram of the total number of steps taken each day
 3. Calculate and report the mean and median of the total number of steps taken per day
@@ -50,7 +51,7 @@ p <- p + ggtitle(labs(subtitle = "Dashed Red Line ~ Average & Dotted Green Line 
 print(p)
 ```
 
-![plot of chunk histogram2](figure/histogram2-1.png)
+![](PA1_Template_files/figure-html/histogram2-1.png)<!-- -->
 
 Calculate mean and median steps per day
 
@@ -72,7 +73,9 @@ print(medianSteps)
 ## [1] 10765
 ```
 
-###Task 2: What is the average daily activity pattern?
+
+## What is the average daily activity pattern?
+
 1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -93,7 +96,7 @@ p2 <- p2 + ggtitle(label = "Time Series Plot of Average Steps Per 5-Min Time Int
 print(p2)
 ```
 
-![plot of chunk stats time series plot](figure/stats time series plot-1.png)
+![](PA1_Template_files/figure-html/stats time series plot-1.png)<!-- -->
 
 Display highest average step count per interval & interval in which the highest average occurs
 
@@ -116,13 +119,8 @@ print(max5MinInterval)
 ## 104      835     206.1698
 ```
 
-###Task 3: Imputing missing values
-###Assumption: Note that there are a number of days/intervals where there are missing values (coded as NA). - The presence of missing days may introduce bias into some calculations or summaries of the data.
 
-1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
-2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
-3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
-4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
+## Imputing missing values
 
 Reread in dataset & count number of missing values & percentage of total
 
@@ -138,6 +136,7 @@ print(percentMissing)
 ```
 
 Replace missing vales with average per 5 min interval (StepsPer5 data frame)
+
 
 ```r
 for (i in 1:length(activity2$steps)) {
@@ -169,10 +168,9 @@ summary(activity2$steps)
 ##    0.00    0.00    0.00   37.38   27.00  806.00
 ```
 
-# 4. Make a histogram of the total number of steps taken each day and Calculate and report the 
-# mean and median total number of steps taken per day. Do these values differ from the estimates 
-# from the first part of the assignment? What is the impact of imputing missing data on the 
-# estimates of the total daily number of steps?
+## Are there differences in activity patterns between weekdays and weekends?
+
+### 4. Make a histogram of the total number of steps taken each day and Calculate and report the  mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
 Create new data frame of total daily steps with average data for missing values
 
@@ -197,7 +195,7 @@ p3 <- p3 + ggtitle(labs(subtitle = "Simulated Data for Missing Values; Dashed Re
 print(p3)
 ```
 
-![plot of chunk full histogram](figure/full histogram-1.png)
+![](PA1_Template_files/figure-html/full histogram-1.png)<!-- -->
 
 Calculate mean and median
 
@@ -304,4 +302,6 @@ p5 <- p5 + ggtitle(labs(subtitle = "Weekend"))
 grid.arrange(p4, p5, ncol = 1)
 ```
 
-![plot of chunk time series plots by weekday vs weekend](figure/time series plots by weekday vs weekend-1.png)
+![](PA1_Template_files/figure-html/time series plots by weekday vs weekend-1.png)<!-- -->
+
+
