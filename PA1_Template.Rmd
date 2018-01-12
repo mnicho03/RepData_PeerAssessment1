@@ -1,10 +1,7 @@
----
-title: "Reproducible Research: Peer Assessment 1"
+Reproducible Research: Peer Assessment 1
+=============================
 #Michael Nichols
-output: 
-  html_document:
-    keep_md: true
----
+
 ###Basic assumptions:
 - assumes activity data downloaded and unzipped into working directory
 
@@ -15,7 +12,6 @@ library(dplyr)
 library(gridExtra)
 library(knitr)
 ```
-
 
 ## Loading and preprocessing the data
 
@@ -73,7 +69,7 @@ names(StepsPer5) <- c("Interval", "AverageSteps")
 ```
 
 Create time series plot and then display
-```{r stats time series plot}
+```{r stats time series plot1}
 p2 <- ggplot(NULL, aes(y = StepsPer5$AverageSteps, x = StepsPer5$Interval)) 
 p2 <- p2 + geom_line() + geom_point() 
 p2 <- p2 + labs(y = "Average Steps per 5 Minute Interval", x = "5 Minute Time Interval Number") 
@@ -128,7 +124,7 @@ names(DailySteps3) <- c("Day", "FullSteps")
 ```
 
 Create histogram of daily steps with substituted missing values
-```{r full histogram}
+```{r full histogramB}
 p3 <- ggplot(DailySteps3, aes(x = FullSteps)) + geom_histogram(color = "black", fill = "grey", binwidth = 1000) + ggtitle(label = "Total Number of Steps Per Day")
 
 # annotate histogram with mean and median data

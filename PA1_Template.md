@@ -1,4 +1,7 @@
-# Reproducible Research: Peer Assessment 1
+Reproducible Research: Peer Assessment 1
+=============================
+#Michael Nichols
+
 ###Basic assumptions:
 - assumes activity data downloaded and unzipped into working directory
 
@@ -10,7 +13,6 @@ library(dplyr)
 library(gridExtra)
 library(knitr)
 ```
-
 
 ## Loading and preprocessing the data
 
@@ -51,7 +53,7 @@ p <- p + ggtitle(labs(subtitle = "Dashed Red Line ~ Average & Dotted Green Line 
 print(p)
 ```
 
-![](PA1_Template_files/figure-html/histogram2-1.png)<!-- -->
+![plot of chunk histogram2](figure/histogram2-1.png)
 
 Calculate mean and median steps per day
 
@@ -96,7 +98,7 @@ p2 <- p2 + ggtitle(label = "Time Series Plot of Average Steps Per 5-Min Time Int
 print(p2)
 ```
 
-![](PA1_Template_files/figure-html/stats time series plot-1.png)<!-- -->
+![plot of chunk stats time series plot1](figure/stats time series plot1-1.png)
 
 Display highest average step count per interval & interval in which the highest average occurs
 
@@ -195,7 +197,7 @@ p3 <- p3 + ggtitle(labs(subtitle = "Simulated Data for Missing Values; Dashed Re
 print(p3)
 ```
 
-![](PA1_Template_files/figure-html/full histogram-1.png)<!-- -->
+![plot of chunk full histogramB](figure/full histogramB-1.png)
 
 Calculate mean and median
 
@@ -302,6 +304,6 @@ p5 <- p5 + ggtitle(labs(subtitle = "Weekend"))
 grid.arrange(p4, p5, ncol = 1)
 ```
 
-![](PA1_Template_files/figure-html/time series plots by weekday vs weekend-1.png)<!-- -->
+![plot of chunk time series plots by weekday vs weekend](figure/time series plots by weekday vs weekend-1.png)
 
 
