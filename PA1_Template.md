@@ -197,7 +197,7 @@ p3 <- p3 + ggtitle(labs(subtitle = "Simulated Data for Missing Values; Dashed Re
 print(p3)
 ```
 
-![plot of chunk full histogramB](figure/full histogramB-1.png)
+![plot of chunk full_histogramB](figure/full_histogramB-1.png)
 
 Calculate mean and median
 

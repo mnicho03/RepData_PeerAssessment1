@@ -124,7 +124,7 @@ names(DailySteps3) <- c("Day", "FullSteps")
 ```
 
 Create histogram of daily steps with substituted missing values
-```{r full histogramB}
+```{r full_histogramB}
 p3 <- ggplot(DailySteps3, aes(x = FullSteps)) + geom_histogram(color = "black", fill = "grey", binwidth = 1000) + ggtitle(label = "Total Number of Steps Per Day")
 
 # annotate histogram with mean and median data
