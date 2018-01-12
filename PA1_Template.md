@@ -98,7 +98,7 @@ p2 <- p2 + ggtitle(label = "Time Series Plot of Average Steps Per 5-Min Time Int
 print(p2)
 ```
 
-![plot of chunk stats time series plot1](figure/stats time series plot1-1.png)
+![plot of chunk stats_time_series_plot1](figure/stats_time_series_plot1-1.png)
 
 Display highest average step count per interval & interval in which the highest average occurs
 
@@ -304,6 +304,6 @@ p5 <- p5 + ggtitle(labs(subtitle = "Weekend"))
 grid.arrange(p4, p5, ncol = 1)
 ```
 
-![plot of chunk time series plots by weekday vs weekend](figure/time series plots by weekday vs weekend-1.png)
+![plot of chunk time_series_plots_by_weekday_vs_weekend](figure/time_series_plots_by_weekday_vs_weekend-1.png)
 
 

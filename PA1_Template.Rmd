@@ -69,7 +69,7 @@ names(StepsPer5) <- c("Interval", "AverageSteps")
 ```
 
 Create time series plot and then display
-```{r stats time series plot1}
+```{r stats_time_series_plot1}
 p2 <- ggplot(NULL, aes(y = StepsPer5$AverageSteps, x = StepsPer5$Interval)) 
 p2 <- p2 + geom_line() + geom_point() 
 p2 <- p2 + labs(y = "Average Steps per 5 Minute Interval", x = "5 Minute Time Interval Number") 
@@ -193,7 +193,7 @@ names(StepsPer5Weekend) <- c("Interval", "AverageWeekendSteps")
 StepsPer5Grouped <- merge(StepsPer5Weekday, StepsPer5Weekend)
 ```
 
-```{r time series plots by weekday vs weekend}
+```{r time_series_plots_by_weekday_vs_weekend}
 # create stacked ggplots with labels on only selected charts and consistent y axis limits
 p4 <- ggplot(NULL, aes(y = StepsPer5Grouped$AverageWeekdaySteps, x = StepsPer5Grouped$Interval)) 
 p4 <- p4 + geom_line() + geom_point() + ylim(0, 235)
